@@ -1,22 +1,51 @@
-*{
+* {
     padding: 0;
     margin: 0;
-    font-family:'Helvetica', sans-serif;
+    font-family: 'Helvetica', sans-serif;
     box-sizing: border-box;
-    background-color: #f8eded;
 
-    
+   
 }
-.container{
+
+/* Main container positioning at the bottom */
+.container {
     width: 100%;
     max-width: 400px;
-    margin: 50px auto;
+    margin: 0;
+    position: fixed;
+    bottom: 20px;  
+    left: 50%;
+    transform: translateX(-50%); 
     text-align: center;
 }
-.main{
+.icon-btn {
+
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #080808; 
+    cursor: pointer;
+   
+
+}
+
+
+.icon-btn:hover {
+    color: #4CAF50;
+}
+
+
+/* Chat window */
+.main {
     margin-bottom: 20px;
 }
-#sendButton{
+.chatbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Input and Send button styles */
+#sendButton {
     padding: 10px 15px;
     margin-top: 10px;
     background-color: #4CAF50;
@@ -24,38 +53,67 @@
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-#chatbotResponse{
-    margin-top: 20px;
-
+.input-wrapper{
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    border-radius: 10px;   
+    background-color: #fff;
 }
-#input{
-    width: 80%;
-    padding: 10px 12px;
-    margin-top: 10px;
-    transition: border-color 0.3s ease;
-    border-radius: 8px;
+#input {
+    width: 100%; 
+    padding: 14px 16px;
     font-size: 16px;
-    border: 2px solid #ddd;
+    border-radius: 18px; 
+    border: none;
+    outline: none; 
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+}
 
+input::placeholder {
+    font-size: 16px;
+    font-style: italic;
 }
-#input:focus{
-    outline: none;
-    border-color: #4CAF50;
-    box-shadow:0 0 8px rgba(76, 175, 80, 0.3);
-}
-label{
+
+
+label {
     font-size: 18px;
     font-weight: bold;
     display: block;
     margin-bottom: 8px;
-    color: #333;
+    color: #e0e0e0;
     padding: 0 5px;
 }
+
 input::placeholder,
 textarea::placeholder {
-    color: #999;
+    color: #0c0a0a;
     font-size: 16px;
     font-style: italic;
     opacity: 1;
+}
+
+/* Chatbot response section */
+#chatbotResponse {
+    margin-top: 20px;
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ddd;
+}
+
+/* Ensure the body takes up full height */
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #292929;
 }

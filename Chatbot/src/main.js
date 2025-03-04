@@ -2,11 +2,11 @@ const input = document.getElementById('input');
 const Button = document.getElementById('sendButton');
 const chatbotResponse = document.getElementById('chatbotResponse');
 
-// Function to handle the user's input and display the response
+
 function handleUserInput() {
     const inputText = input.value.trim(); 
 
-    // Check if the input is empty
+   
     if (inputText === '') {
         alert("Please enter a valid message");
         return; 
