@@ -4,7 +4,7 @@
     font-family: 'Helvetica', sans-serif;
     box-sizing: border-box;
 
-   
+
 }
 
 /* Main container positioning at the bottom */
@@ -13,19 +13,20 @@
     max-width: 400px;
     margin: 0;
     position: fixed;
-    bottom: 20px;  
+    bottom: 20px;
     left: 50%;
-    transform: translateX(-50%); 
+    transform: translateX(-50%);
     text-align: center;
 }
+
 .icon-btn {
 
     background: none;
     border: none;
     font-size: 20px;
-    color: #080808; 
+    color: #080808;
     cursor: pointer;
-   
+
 
 }
 
@@ -35,17 +36,19 @@
 }
 
 
-/* Chat window */
+
 .main {
     margin-bottom: 20px;
 }
-.chatbox{
+
+
+.chatbox {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-/* Input and Send button styles */
-#sendButton {
+
+#paper {
     padding: 10px 15px;
     margin-top: 10px;
     background-color: #4CAF50;
@@ -55,26 +58,74 @@
     border-radius: 5px;
     margin-bottom: 10px;
     margin-left: 10px;
-}.btn{
+    border-radius: 40%;
+}
+
+.btn {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.input-wrapper{
+
+.input-wrapper {
     display: flex;
     align-items: center;
     padding: 0 1rem;
-    border-radius: 10px;   
+    border-radius: 10px;
     background-color: #fff;
 }
+
+/* .Message {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    right: 20px;
+} */
+
+.user-meassage {
+    background: #d1e7dd;
+    padding: 8px;
+    border-radius: 10px;
+margin-top: 5px;
+    max-width: 100%;
+    margin-left: 50px;
+}
+.chatresponse{
+   
+   
+    border-radius: 10px;
+
+
+    width: auto;
+    display: flex;
+    justify-content: left;
+}
+.chat{
+    width: auto;
+    color: #fff3f3;
+    background-color: #080707;
+    padding: 5px 10px;
+    border-radius: 15px;
+    width: auto;
+    text-align: left;
+    margin-right: 10px;
+}
+
 #input {
-    width: 100%; 
+    width: 100%;
     padding: 14px 16px;
     font-size: 16px;
-    border-radius: 18px; 
+    border-radius: 18px;
     border: none;
-    outline: none; 
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.demo {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content:space-evenly;
+    margin-left:30px;
 }
 
 input::placeholder {
@@ -100,15 +151,9 @@ textarea::placeholder {
     opacity: 1;
 }
 
+
 /* Chatbot response section */
-#chatbotResponse {
-    margin-top: 20px;
-    margin-left: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ddd;
-}
+
 
 /* Ensure the body takes up full height */
 body {
