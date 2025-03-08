@@ -5,52 +5,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chatbot</title>
+  
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="./src/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer" />
 </head>
 
 <body>
   <div class="container">
-   
-    <div class="demo">
+    
+ 
+   <div class="demo">
       <div id="userResponse" class="Message">
-    </div>
-   
-
-    </div>
-    <div class="chatresponse">
-     <p class="chat"> chat:hello</p>
-  
-    </div>
-    <div class="main">
-      <label for="input">Chat with me:</label>
-      <div class="message-container">
-     
 
       </div>
+    </div>
+
+
+
+
+    
+
+    <!-- Main Chat Section -->
+    <div class="main">
+      <label for="input">Chat with me:</label>
+      
+      <!-- Message Container -->
+      <div class="message-container"></div>
+      
+      <!-- Chatbox Input Section -->
       <div class="chatbox">
+        
+        <!-- Input Wrapper -->
         <div class="input-wrapper">
           <i class="fa-solid fa-face-smile"></i>
           <input id="input" type="text" placeholder="Message" aria-label="Chatbot input">
+          
+          <!-- Attachment Button -->
           <button id="attachmentButton" class="icon-btn">
             <i class="fa-solid fa-paperclip"></i>
           </button>
         </div>
 
+        <!-- Send Message Button -->
         <div>
-
           <i id="paper" class="fa-solid fa-paper-plane"></i>
         </div>
       </div>
 
+    </div> <!-- End of Main Chat Section -->
 
+  </div> <!-- End of Container -->
 
-
-
-
-      <script src="./src/main.js"></script>
+  <!-- JavaScript -->
+  <script src="./src/main.js" type="module"></script>
 </body>
 
 </html>

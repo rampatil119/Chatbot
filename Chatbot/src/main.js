@@ -1,75 +1,69 @@
-const input = document.getElementById('input');
-
-const messageContainer = document.getElementById('userResponse');
-
-
-const paper = document.getElementById('paper')
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import { AI_INSTRUCTION } from "./instructions.js";
 
 
+const apikey =import.meta.env.VITE_API_KEY;
+console.log(apikey);
+const input = document.getElementById("input");
+const messageContainer = document.getElementById("userResponse");
+const paper = document.getElementById("paper");
 
+const API_KEY = "AIzaSyALDRZHkyT0HSVOIVdbK5XxghDWMsBx5ac"; 
+const genAI = new GoogleGenerativeAI(API_KEY);
 
-
-
-
-
-
-function handleUserInput() {
+// Function to handle user input
+async function handleUserInput() {
     const inputText = input.value.trim();
 
-
-    if (inputText === '') {
+    if (inputText === "") {
         alert("Please enter a valid message");
         return;
     }
-    const userMessage = document.createElement('div')
-    userMessage.className = 'user-meassage';
-    userMessage.innerHTML = `<strong>you:</strong>${inputText}`;
-    messageContainer.appendChild(userMessage)
 
+    // Display user message
+    const userMessage = document.createElement("div");
+    userMessage.className = "user-message";
+    userMessage.innerHTML = `<strong>You:</strong> ${inputText}`;
+    messageContainer.appendChild(userMessage);
 
+    input.value = "";
 
-// const chatMessage=document.createElement('div')
-// chatMessage.className='chat-meassage';
-// chatMessage.innerHTML=`<p>ai:</p>`
-
-    input.value = '';
+    // Get AI response
+    const aiResponse = await generateAIResponse(inputText);
+    displayAIResponse(aiResponse);
 }
 
+// Function to display AI response
+function displayAIResponse(responseText) {
+    const aiMessage = document.createElement("div");
+    aiMessage.className = "ai-message";
+    aiMessage.innerHTML = `<strong>AI:</strong> ${responseText}`;
+    messageContainer.appendChild(aiMessage);
+}
 
+// Function to generate AI response
+async function generateAIResponse(userInput) {
+    try {
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
+        // Combine AI instructions with user input
+        const finalPrompt = `${AI_INSTRUCTION} \n\nUser: ${userInput}`;
 
+        const result = await model.generateContent(finalPrompt);
+        const response = await result.response.text();
 
-paper.addEventListener('dblclick', handleUserInput)
+        return response;
+    } catch (error) {
+        console.error("Error:", error);
+        return "Sorry, something went wrong!";
+    }
+}
 
-
-input.addEventListener('keydown', function (event) {
-    if (event.key === 'Enter') {
+// Event listeners
+paper.addEventListener("dblclick", handleUserInput);
+input.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
         event.preventDefault();
         handleUserInput();
     }
 });
-
-
-
-
-// const { GoogleGenerativeAI } = require("@google/generative-ai");
-
-// Replace with your actual API key
-const API_KEY = "YOUR_API_KEY";
-const genAI = new GoogleGenerativeAI(API_KEY);
-
-async function generateAIResponse(prompt) {
-    try {
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-        const result = await model.generateContent(prompt);
-        const response = await result.response.text();
-        console.log("AI Response:", response);
-    } catch (error) {
-        console.error("Error:", error);
-    }
-}
-
-generateAIResponse("Explain how AI works.");
-
-
-
