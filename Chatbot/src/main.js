@@ -7,6 +7,7 @@ console.log(apikey);
 const input = document.getElementById("input");
 const messageContainer = document.getElementById("userResponse");
 const paper = document.getElementById("paper");
+const editbtn=document.getElementById('editbtn')
 
 const API_KEY = "AIzaSyALDRZHkyT0HSVOIVdbK5XxghDWMsBx5ac"; 
 const genAI = new GoogleGenerativeAI(API_KEY);
@@ -67,3 +68,6 @@ input.addEventListener("keydown", function (event) {
         handleUserInput();
     }
 });
+editbtn.addEventListener('click',()=>{
+   document.getElementsByClassName('user-message')
+})
