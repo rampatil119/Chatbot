@@ -8,25 +8,19 @@
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="./src/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/emoji-button@4.6.0/dist/index.min.css" /> -->
+</head> -->
 
 <body>
   <div class="container">
 
-
+    <!-- Chatbot Demo -->
     <div class="demo">
-      <div id="userResponse" class="Message">
-
-      </div>
+      <div id="userResponse" class="Message"></div>
     </div>
-
-
-
-
-
 
     <!-- Main Chat Section -->
     <div class="main">
@@ -34,8 +28,6 @@
 
       <!-- Message Container -->
       <div class="message-container"></div>
-
-
 
       <!-- Chatbox Input Section -->
       <div class="chatbox">
@@ -45,10 +37,8 @@
           <i class="fa-solid fa-face-smile"></i>
           <input id="input" type="text" placeholder="Message" aria-label="Chatbot input">
 
-          <!-- Attachment Button -->
-          <button id="attachmentButton" class="icon-btn">
-            <i class="fa-solid fa-paperclip"></i>
-          </button>
+          <!-- Emoji Button -->
+          <button id="emojiButton" class="icon-btn">😀</button>
         </div>
 
         <!-- Send Message Button -->
@@ -56,7 +46,6 @@
           <i id="paper" class="fa-solid fa-paper-plane"></i>
         </div>
       </div>
-
     </div> <!-- End of Main Chat Section -->
 
     <div id="popup">
@@ -65,11 +54,14 @@
     </div>
 
   </div> <!-- End of Container -->
+
   <div class="edit">
     <button id="editbtn">Edit</button>
-
   </div>
+
   <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/emoji-button@4.6.0/dist/index.min.js"></script>
+  <script src="./src/emojipiker.js" ></script>
   <script src="./src/main.js" type="module"></script>
 </body>
 
