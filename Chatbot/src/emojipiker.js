@@ -1,18 +1,16 @@
-// emojiPicker.js
+import EmojiButton from 'emoji-button';
 
 // Get the emoji button and input element
 const emojiButton = document.getElementById('emojiButton');
 const messageInput = document.getElementById('input');
 
-// Initialize the EmojiButton picker
-let picker =  EmojiButton();
+const picker = new EmojiButton(); // Initialize the emoji picker
 
-// Open the emoji picker when the emoji button is clicked
 emojiButton.addEventListener('click', () => {
-  picker.togglePicker(emojiButton);
+  picker.togglePicker(emojiButton); // Show or hide the emoji picker
 });
 
-// Insert the selected emoji into the input field
 picker.on("emoji", emoji => {
-  messageInput.value += emoji;  // Add emoji to the input field
+  messageInput.value += emoji;  // Add the emoji to the input field
 });
+    

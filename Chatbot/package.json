@@ -12,6 +12,7 @@
     "vite": "^6.1.0"
   },
   "dependencies": {
-    "@google/generative-ai": "^0.23.0"
+    "@google/generative-ai": "^0.23.0",
+    "emoji-button": "^2.2.2"
   }
 }
