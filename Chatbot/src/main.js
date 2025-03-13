@@ -8,6 +8,9 @@ const input = document.getElementById("input");
 const messageContainer = document.getElementById("userResponse");
 const paper = document.getElementById("paper");
 const editbtn=document.getElementById('editbtn')
+const popup = document.getElementById('popup')
+const closePopButton = document.getElementById('close-popup')
+let messgeCount=0;
 
 const API_KEY = "AIzaSyALDRZHkyT0HSVOIVdbK5XxghDWMsBx5ac"; 
 const genAI = new GoogleGenerativeAI(API_KEY);
@@ -18,7 +21,9 @@ async function handleUserInput() {
 
     if (inputText === "") {
         alert("Please enter a valid message");
+       
         return;
+        
     }
 
     // Display user message
@@ -27,7 +32,28 @@ async function handleUserInput() {
     userMessage.innerHTML = `<strong>You:</strong> ${inputText}`;
     messageContainer.appendChild(userMessage);
 
+    messgeCount++;
+        if (messgeCount==2 || messgeCount==3 ) {
+          showLoginpopup()
+        }
+
     input.value = "";
+      
+      if(showLoginpopup()=='block'){
+        attachmentButton.style.display='none'
+
+      }
+
+    function showLoginpopup(){
+        popup.style.display='block'
+        input.disabled =true;
+    }
+
+   closePopButton.addEventListener('click',()=>{
+      popup.style.display='none'
+      input.disabled=false;
+   })
+    
 
     // Get AI response
     const aiResponse = await generateAIResponse(inputText);
@@ -61,9 +87,10 @@ async function generateAIResponse(userInput) {
 }
 
 // Event listeners
-paper.addEventListener("dblclick", handleUserInput);
+paper.addEventListener("click", handleUserInput);
 input.addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" ) {
+      
         event.preventDefault();
         handleUserInput();
     }

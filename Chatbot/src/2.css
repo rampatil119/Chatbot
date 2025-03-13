@@ -45,3 +45,8 @@ label{
     margin-bottom: 8px;
     font-weight: bold;
 }
+.error-message {
+    color: red;
+    font-size: 12px;
+    display: none; /* Start as hidden */
+}
