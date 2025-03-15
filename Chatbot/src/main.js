@@ -7,7 +7,7 @@ console.log(apikey);
 const input = document.getElementById("input");
 const messageContainer = document.getElementById("userResponse");
 const paper = document.getElementById("paper");
-const editbtn=document.getElementById('editbtn')
+const focusButton=document.getElementById('focusButton')
 const popup = document.getElementById('popup')
 const closePopButton = document.getElementById('close-popup')
 let messgeCount=0;
@@ -95,8 +95,33 @@ input.addEventListener("keydown", function (event) {
         handleUserInput();
     }
 });
-editbtn.addEventListener('click',()=>{
-   document.getElementsByClassName('user-message')
+
+
+focusButton.addEventListener("click",()=>{
+    const userMessage = document.getElementsByClassName('user-message');
+    if (userMessage.length>0) {
+        const lastMessage =userMessage[userMessage.length -1];
+
+        lastMessage.contentEditable = true;
+        lastMessage.focus();
+        
+        function saveMessage() {
+            input.value = lastMessage.innerHTML.trim();
+            lastMessage.contentEditable=false;
+            
+        }
+        lastMessage.addEventListener('blur',saveMessage)
+
+        lastMessage.addEventListener('keydown',(e)=>{
+            if (e.key==='Enter') {
+                e.preventDefault();
+                saveMessage();
+                
+            }
+        })
+    }else{
+        alert("no msg to edit")
+    }
 })
 
 
